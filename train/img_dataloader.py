@@ -1,13 +1,15 @@
 import torch
+import torchvision
 from torchvision import datasets, transforms
+from img_aug import img_transforms
 
-train_data_path = "data/train/"
+train_data_path = "../data/train/"
 train_data = torchvision.datasets.ImageFolder(root=train_data_path,transform=img_transforms['train'])
 
-valid_data_path = "data/valid/"
+valid_data_path = "../data/valid/"
 valid_data = torchvision.datasets.ImageFolder(root=valid_data_path,transform=img_transforms['valid'])
 
-test_data_path = "data/test/"
+test_data_path = "../data/test/"
 test_data = torchvision.datasets.ImageFolder(root=test_data_path,transform=img_transforms['test'])
 
 print(f'there are {len(train_data.classes)} classes in the training dataset.')
@@ -32,7 +34,7 @@ test_loader = torch.utils.data.DataLoader(test_data,
                                            num_workers=num_workers,
                                            shuffle=False)
 
-                                           loaders = {
+loaders = {
                                                'train': train_loader,
                                                'valid': valid_loader,
                                                'test': test_loader

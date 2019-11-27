@@ -9,10 +9,8 @@ from torchvision import datasets, models, transforms
 import time
 
 from timeit import default_timer as timer
-
-import img_aug
-import img_dataloader
-import transfer_model
+from img_dataloader import train_loader, valid_loader, test_loader
+from transfer_model import transfer_model
 
 # Define criterion and optimizer
 # criterion = nn.NLLLoss()
@@ -217,6 +215,7 @@ def train(transfer_model,
 if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device {}.".format(device))
+    transfer_model.to(device)
 
     save_file_name = 'resnet50-transfer-TEST.pt'
     checkpoint_path = 'resnet50-transfer-TEST.pth'

@@ -17,4 +17,4 @@ img_transforms = {'train': transforms.Compose([transforms.RandomResizedCrop(size
                    'test': transforms.Compose([transforms.Resize(size=256),
                                                transforms.CenterCrop(size=224),
                                                transforms.ToTensor(),
-                                               std_norm])
+                                               std_norm])}

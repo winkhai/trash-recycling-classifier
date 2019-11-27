@@ -39,4 +39,3 @@ total_trainable_params = sum(
     param.numel() for param in transfer_model.parameters() if param.requires_grad)
 print(f'There are {total_trainable_params:,} training parameters.')
 
-transfer_model.to(device)
